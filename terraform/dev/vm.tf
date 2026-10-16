@@ -7,5 +7,5 @@ module "myvm" {
   network = "default"
   subnetwork = "default"
   service_account_email = "718237122299-compute@developer.gserviceaccount.com"
-  sa_scopes =["https://googleapis.com"]
+  sa_scopes =["cloud-platform"]
 }
