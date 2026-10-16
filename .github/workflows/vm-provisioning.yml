@@ -1,10 +1,9 @@
+#gcp vm provisioning
 name: gcp_vm_provisioning
 on:
   push:
     branches:
       -  'demo'
-env:
-      GCP_SA: ${{ secrets.GCP_SA_KEY }}
 jobs: 
   vm_provisioning:
     runs-on: ubuntu-latest
@@ -16,4 +15,4 @@ jobs:
       - name: Authenticate to Google Cloud
         uses: 'google-github-actions/auth@v3'
         with:
-          credentials_json: '${{ secrets.GCP_SA_KEY }}' 
+          credentials_json: ${{ secrets.GCP_SA_KEY }}
