@@ -1,4 +1,4 @@
-# Module Block: Create a single Compute Engine instance
+# Module Block: Create a Compute Engine instance with service account attached
 module "myvm" {
   source  = "../modules/vm_instance"
   vm_name = "vm-test1"
