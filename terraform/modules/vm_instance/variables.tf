@@ -50,9 +50,9 @@ variable "os_image"{
 }
 
 variable "size"{
-    type        = int
+    type        = number
     description = "boot disk size"
-    default     = 10
+    default     = 20
 }
 variable "startup_script_path" {
   type        = string
