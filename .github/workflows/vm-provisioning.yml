@@ -24,8 +24,8 @@ jobs:
       - name: Terraform init
         run:  terraform init
         working-directory: terraform/dev
-      - name: Force unlock (temporary)
-        run: terraform force-unlock -force 1792141229841924
+     # - name: Force unlock (temporary)
+      #  run: terraform force-unlock -force 1792141229841924
       - name: Terraform plan
         run: terraform plan
         working-directory: terraform/dev
