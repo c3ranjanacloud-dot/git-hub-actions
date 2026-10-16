@@ -38,7 +38,7 @@ variable "zone" {
   default     = null
 }
 
-variable "vminstance_name" {
+variable "vm_name" {
   type        = string
   description = "VM Instance Name"
   default     = ""
