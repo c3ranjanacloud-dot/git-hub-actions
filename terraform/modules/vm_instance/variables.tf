@@ -54,7 +54,7 @@ variable "size"{
     description = "boot disk size"
     default     = 20
 }
-variable "startup_script_path" {
+variable "startup_script" {
   type        = string
   description = "Optional path to a custom startup script file."
   default     = null 
