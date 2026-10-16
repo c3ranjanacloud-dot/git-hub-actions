@@ -13,6 +13,7 @@ resource "google_compute_instance" "myvm" {
     email = var.service_account_email
     scopes = var.sa_scopes
   }
+  allow_stopping_for_update = true
   metadata_startup_script = var.startup_script
   network_interface {
     subnetwork = var.subnetwork   
