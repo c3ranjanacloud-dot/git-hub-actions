@@ -18,5 +18,10 @@ jobs:
         uses: 'google-github-actions/auth@v3'
         with:
           credentials_json: ${{ secrets.GCP_SA_KEY }}
+     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token. 
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3.1.2
       - name: Terraform init
         run:  terraform init
+      - name: Terraform plan
+        run: terraform plan
