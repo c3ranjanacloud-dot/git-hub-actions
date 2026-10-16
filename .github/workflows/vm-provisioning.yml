@@ -26,3 +26,4 @@ jobs:
         working-directory: terraform/dev
       - name: Terraform plan
         run: terraform plan
+        working-directory: terraform/dev
