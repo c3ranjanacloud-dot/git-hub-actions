@@ -9,6 +9,10 @@ resource "google_compute_instance" "myvm" {
       size = var.size
     }
   }
+  service_account{
+    email = var.service_account_email
+    scopes = var.sa_scopes
+  }
   metadata_startup_script = var.startup_script
   network_interface {
     subnetwork = var.subnetwork   

@@ -59,4 +59,12 @@ variable "startup_script" {
   description = "Optional path to a custom startup script file."
   default     = null 
 }
+variable "service_account_email" {
+  type        = string
+  description = "service account email."
+}
+
+variable "sa_scopes" {
+  type = list(string)
+}
 
