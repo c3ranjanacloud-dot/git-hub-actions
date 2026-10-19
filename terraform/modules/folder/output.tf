@@ -1,4 +1,4 @@
 output "folder_id"{
-    descrition = "The ID of created user"
+    description = "The ID of created folder"
     value = google_folder.folder.org_id
 }
