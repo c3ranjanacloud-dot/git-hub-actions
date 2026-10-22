@@ -1,7 +1,7 @@
 variable "enable_apis" {
     type=map(object({
         project = string
-        service = list(strings)
+        service = list(string)
         disable_on_destroy = false
     }))
 }
