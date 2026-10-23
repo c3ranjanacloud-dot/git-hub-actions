@@ -1,4 +1,4 @@
-#create folder
+#create folder and enable api
 /*module "apis" {
     source = "../modules/api_enable"
     enable_api = false
