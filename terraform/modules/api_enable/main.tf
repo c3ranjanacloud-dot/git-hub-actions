@@ -1,8 +1,4 @@
 resource "google_project_service" "apis" {
-  for_each = var.enable_apis
-}
-
-resource "google_project_service" "apis" {
   for_each = {
     for api in flatten([
       for key, value in var.enable_apis : [
