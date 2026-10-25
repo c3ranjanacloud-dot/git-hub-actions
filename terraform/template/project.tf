@@ -5,7 +5,7 @@ module "project" {
   folder_id = module.folder1.folder_id
   billing_acc = "01939C-8BBB1C-484643"
 }
-# enable apis
+# enable apis in new project
 module "enable_apis" {
   source = "../modules/enable_apis"
   enable_apis = {
