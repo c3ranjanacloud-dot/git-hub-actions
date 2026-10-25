@@ -9,7 +9,7 @@ module "enable_apis" {
 
   enable_apis = {
     "proj-a" = {
-      project            = module.project_a.project_id   
+      project            = module.project-a.project_id   
       service            = ["compute.googleapis.com", "iam.googleapis.com"]
       disable_on_destroy = false
     }
