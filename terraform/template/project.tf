@@ -1,4 +1,4 @@
-module "project-a" {
+module "project" {
   source  = "../modules/project"
   name = "dev-infra-project"
   project_id = "dev-infra-project44622"
@@ -9,7 +9,7 @@ module "enable_apis" {
 
   enable_apis = {
     "proj-a" = {
-      project            = module.project-a.project_id   
+      project            = module.project.project_id   
       service            = ["compute.googleapis.com", "iam.googleapis.com"]
       disable_on_destroy = false
     }
