@@ -3,7 +3,7 @@ module "project" {
   name = "dev-infra-project"
   project_id = "dev-infra-project44622"
   folder_id = module.folder1.folder_id
-  billing_acc = data.google_billing_account.acc.display_name
+  billing_acc = "01939C-8BBB1C-484643"
 }
 # enable apis
 module "enable_apis" {
