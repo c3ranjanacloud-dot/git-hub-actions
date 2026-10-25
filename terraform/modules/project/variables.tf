@@ -10,3 +10,6 @@ variable "folder_id"{
 variable "org_id"{
     default = null
 }
+variable "billing_acc"{
+   
+}
