@@ -1,4 +1,4 @@
-# enable apis in  project
+# enable apis in  projects
 module "enable_apis" {
   source = "../modules/enable_apis"
   enable_apis = {
