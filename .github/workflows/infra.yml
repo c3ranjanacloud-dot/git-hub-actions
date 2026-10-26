@@ -1,10 +1,6 @@
 name: infra provisioning
 on:
-  push:
-    branches:
-      - 'demo'
-
-    workflow_dispatch:
+  workflow_dispatch:
     inputs:
       action:
         description: 'Choose Terraform action'
