@@ -24,6 +24,25 @@ jobs:
       - name: Terraform init
         run:  terraform init
         working-directory: terraform/template
+      - name: Import existing projects if missing from state
+        working-directory: terraform/template
+        shell: bash
+        run: |
+          set -e
+
+          if ! terraform state show \
+            'module.project.google_project.project' >/dev/null 2>&1; then
+            terraform import \
+              'module.project.google_project.project' \
+              'dev-infra-project44622'
+          fi
+
+          if ! terraform state show \
+            'module.project-host.google_project.project' >/dev/null 2>&1; then
+            terraform import \
+              'module.project-host.google_project.project' \
+              'host-project44622'
+          fi
       - name: Terraform plan
         run: terraform plan
         working-directory: terraform/template
