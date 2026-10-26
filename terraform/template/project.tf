@@ -5,11 +5,23 @@ module "project" {
   folder_id = module.folder1.folder_id
   billing_acc = "01939C-8BBB1C-484643"
 }
-# enable apis in new project
+module "project-host" {
+  source  = "../modules/project"
+  name = "hosting-project"
+  project_id = "host-project44622"
+  folder_id = module.folder1.folder_id
+  billing_acc = "01939C-8BBB1C-484643"
+}
+# enable apis in  project
 module "enable_apis" {
   source = "../modules/enable_apis"
   enable_apis = {
     "proj-a" = {
+      project            = module.project.project_id   
+      service            = ["cloudbilling.googleapis.com", "compute.googleapis.com", "iam.googleapis.com"]
+      disable_on_destroy = false
+    },
+    "proj-host" = {
       project            = module.project.project_id   
       service            = ["cloudbilling.googleapis.com", "compute.googleapis.com", "iam.googleapis.com"]
       disable_on_destroy = false
