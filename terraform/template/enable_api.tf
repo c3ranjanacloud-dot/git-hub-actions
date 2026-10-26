@@ -8,7 +8,7 @@ module "enable_apis" {
       disable_on_destroy = false
     },
     "proj-host" = {
-      project            = module.project.project_id   
+      project            = module.project-host.project_id   
       service            = ["cloudbilling.googleapis.com", "compute.googleapis.com", "iam.googleapis.com"]
       disable_on_destroy = false
     }
