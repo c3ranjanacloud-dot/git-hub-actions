@@ -1,4 +1,4 @@
-variable "project_bindings" {
+/*variable "project_bindings" {
   default = {
     "dev-project-id" = [
       { role = "roles/editor", member = "group:dev-team@example.com" },
@@ -9,7 +9,7 @@ variable "project_bindings" {
       { role = "roles/logging.admin", member = "group:ops-team@example.com" }
     ]
   }
-}
+}*/
 variable "project_bindings" {
     type = map(list(object({
         role=string,
