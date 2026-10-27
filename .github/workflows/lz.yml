@@ -11,7 +11,14 @@ on:
       - demo
 jobs:
   project_setup:
+  if: >-
+      github.event_name != 'workflow_run' ||
+      (github.event.workflow_run.event == 'push' &&
+      github.event.workflow_run.conclusion == 'success')
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working_directory: terraform/template/lz_project
     steps:
       - name: checkout code
         uses: actions/checkout@v4
@@ -23,18 +30,12 @@ jobs:
         uses: hashicorp/setup-terraform@v3.1.2
       - name: Terraform init
         run:  terraform init
-        working-directory: terraform/template/lz_project
+        working-directory: 
       - name: Terraform plan
         if: github.event_name == 'pull_request'
         run: terraform plan
-        working-directory: terraform/template/lz_project
       - name: Terraform apply
-        if: >-
-          github.event_name == 'workflow_run' &&
-          github.event.workflow_run.event == 'push' &&
-          github.event.workflow_run.conclusion == 'success' &&
-          github.event.workflow_run.head_branch == 'demo'
         run: terraform apply -auto-approve
-        working-directory: terraform/template/lz_project
+
   
       
