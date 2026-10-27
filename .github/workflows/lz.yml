@@ -25,7 +25,7 @@ jobs:
         run: terraform plan -input=false -var-file="dev.tfvars"
         working-directory: terraform/template/lz_folder
       - name: Terraform apply
-        if: github.event_name == 'push' && github.refs == 'refs/heads/demo' 
+        if: github.event_name == 'push' && github.ref == 'refs/heads/demo' 
         run: terraform apply -auto-approve
         working-directory: terraform/template/lz_folder
   project_setup:
@@ -47,7 +47,7 @@ jobs:
         run: terraform validate
         working-directory: terraform/template/lz_project
       - name: Terraform apply
-        if: github.event_name == 'push' && github.refs == 'refs/heads/demo' 
+        if: github.event_name == 'push' && github.ref == 'refs/heads/demo' 
         run: terraform apply -auto-approve
         working-directory: terraform/template/lz_project
   
