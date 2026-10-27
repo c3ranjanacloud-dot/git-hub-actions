@@ -26,7 +26,7 @@ jobs:
         working-directory: terraform/template/lz_project
       - name: Terraform plan
         if: github.event_name == 'pull_request'
-        run: terraform validate
+        run: terraform plan
         working-directory: terraform/template/lz_project
       - name: Terraform apply
         if: >-
