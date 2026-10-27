@@ -1,4 +1,4 @@
-name: landing zone provisioning
+name: landing zone folder provisioning
 on:
   pull_request :
     branches: 
