@@ -1,11 +1,14 @@
 name: landing zone provisioning
 on:
-  pull_request :
-    branches: 
-      - 'demo'
-  push:
+  pull_request:
     branches:
-      - 'demo'
+      - demo
+  workflow_run:
+    workflows: ["LZ Folder"]
+    types:
+      - completed
+    branches:
+      - demo
 jobs:
   project_setup:
     runs-on: ubuntu-latest
@@ -22,10 +25,15 @@ jobs:
         run:  terraform init
         working-directory: terraform/template/lz_project
       - name: Terraform plan
+        if: github.event_name == 'pull_request'
         run: terraform validate
         working-directory: terraform/template/lz_project
       - name: Terraform apply
-        if: github.event_name == 'push' && github.ref == 'refs/heads/demo' 
+        if: >-
+          github.event_name == 'workflow_run' &&
+          github.event.workflow_run.event == 'push' &&
+          github.event.workflow_run.conclusion == 'success' &&
+          github.event.workflow_run.head_branch == 'demo'
         run: terraform apply -auto-approve
         working-directory: terraform/template/lz_project
   
