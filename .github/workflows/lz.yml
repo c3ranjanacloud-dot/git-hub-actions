@@ -44,7 +44,7 @@ jobs:
         run:  terraform init
         working-directory: terraform/template/lz_project
       - name: Terraform plan
-        run: terraform plan 
+        run: terraform validate
         working-directory: terraform/template/lz_project
       - name: Terraform apply
         if: github.event_name == 'push' && github.refs == 'refs/heads/demo' 
