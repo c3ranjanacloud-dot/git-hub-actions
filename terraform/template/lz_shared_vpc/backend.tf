@@ -1,6 +1,6 @@
 terraform {
 backend "gcs" {
     bucket = "gcp-infra-state-4c87"
-    prefix = "env/dev-infra"
+    prefix = "env/dev-infra/shared_vpc"
   }  
 }
