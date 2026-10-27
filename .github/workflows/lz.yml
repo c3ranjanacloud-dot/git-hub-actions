@@ -22,7 +22,7 @@ jobs:
         run:  terraform init
         working-directory: terraform/template/lz_folder
       - name: Force unlock (temporary)
-        run: terraform force-unlock -force 1793090945024387
+        run: terraform force-unlock -force 1793094853930526
         working-directory: terraform/template/lz_folder
       - name: Terraform plan
         run: terraform plan
