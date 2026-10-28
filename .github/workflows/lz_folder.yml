@@ -3,9 +3,18 @@ on:
   pull_request :
     branches: 
       - 'demo'
+    paths:
+      - 'terraform/template/lz_folder/**'
+      - 'terraform/modules/folder/**'
   push:
     branches:
       - 'demo'
+    paths:
+      - 'terraform/template/lz_folder/**'
+      - 'terraform/modules/folder/**'
+concurrency:
+  group: tf-lz-folder
+  cancel-in-progress: false
 jobs:
   folder_setup:
     runs-on: ubuntu-latest
@@ -22,6 +31,7 @@ jobs:
         run:  terraform init
         working-directory: terraform/template/lz_folder
       - name: Terraform plan
+        if: github.event_name == 'pull_request'
         run: terraform plan -input=false -var-file="dev.tfvars"
         working-directory: terraform/template/lz_folder
       - name: Terraform apply
