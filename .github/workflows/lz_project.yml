@@ -1,21 +1,20 @@
-name: landing zone provisioning
+name: landing zone infra provisioning
 on:
   pull_request:
     branches:
       - demo
-    paths: ['terraform/template/lz_folder/**']
-  workflow_run:
-    workflows: ["landing zone folder provisioning"]
-    types:
-      - completed
-    branches:
+    paths: 
+      - 'terraform/template/lz_project/**'
+  push:
+    branches: 
       - demo
+    paths: 
+      - 'terraform/template/lz_project/**'
+concurrency:
+  group: tf-lz-project
+  cancel-in-progress: false
 jobs:
   project_setup:
-    if: >-
-      github.event_name != 'workflow_run' ||
-      (github.event.workflow_run.event == 'push' &&
-      github.event.workflow_run.conclusion == 'success')
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -23,8 +22,6 @@ jobs:
     steps:
       - name: checkout code
         uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
       - name: Authenticate to Google Cloud
         uses: 'google-github-actions/auth@v3'
         with:
@@ -37,6 +34,7 @@ jobs:
         if: github.event_name == 'pull_request'
         run: terraform plan
       - name: Terraform apply
+        if: github.event_name == 'push' && github.ref_name == 'demo'
         run: terraform apply -auto-approve
 
   
