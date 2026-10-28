@@ -3,9 +3,15 @@ on:
   pull_request :
     branches: 
       - 'demo'
+    paths:
+      - 'terraform/template/lz_folder/**'
+      - 'terraform/modules/folder/**'
   push:
     branches:
       - 'demo'
+    paths:
+      - 'terraform/template/lz_folder/**'
+      - 'terraform/modules/folder/**'
 jobs:
   folder_setup:
     runs-on: ubuntu-latest
