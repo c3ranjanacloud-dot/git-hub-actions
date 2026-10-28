@@ -1,3 +1,0 @@
-variable "enable_apis"{
-    
-}
