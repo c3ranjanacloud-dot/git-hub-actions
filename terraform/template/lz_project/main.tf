@@ -20,3 +20,9 @@ module "project-host" {
   folder_id     = local.host_folder_id
   billing_acc   = var.billing_acc
 }
+# enable apis in  projects
+module "enable_apis" {
+  source = "../modules/enable_apis"
+  enable_apis = var.enable_apis
+} 
+
