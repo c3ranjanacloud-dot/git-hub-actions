@@ -9,7 +9,7 @@ module "project_iam" {
     ]
   }
 }
-module "project_iam" {
+module "project_iam_1" {
   source = "../../modules/project_iam"
   project_bindings = {
     (module.project-test.project_id) = [
