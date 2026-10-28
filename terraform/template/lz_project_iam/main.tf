@@ -1,5 +1,5 @@
 module "project_iam" {
-  source = "../modules/project_iam"
+  source = "../../modules/project_iam"
 
   project_bindings = {
     (module.project.project_id) = [
