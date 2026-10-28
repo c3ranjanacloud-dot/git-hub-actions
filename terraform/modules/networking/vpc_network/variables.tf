@@ -1,6 +1,6 @@
 variable "network_name" {
 
 }
-variable "host_project_id" {
+variable "network_project_id" {
     
 }
