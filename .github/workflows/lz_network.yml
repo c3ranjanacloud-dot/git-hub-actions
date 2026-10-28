@@ -14,7 +14,7 @@ concurrency:
   group: tf-lz-network
   cancel-in-progress: false
 jobs:
-  project_setup:
+  network_setup:
     runs-on: ubuntu-latest
     defaults:
       run:
