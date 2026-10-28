@@ -10,4 +10,10 @@ locals {
     ? var.existing_host_folder_id
     : data.terraform_remote_state.folder.outputs.host_folder_id
   )
+  project_ids = {
+    "proj-dev"    = module.project.project_id
+    "proj-test"    = module.project-test.project_id
+    "proj-host" = module.project-host.project_id
+  }
+
 }

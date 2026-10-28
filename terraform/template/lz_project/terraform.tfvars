@@ -6,18 +6,15 @@ billing_acc = "01939C-8BBB1C-484643"
 host_project_name = "hosting-project"
 host_project_id = "hosting-project-4c78"
 enable_apis = {
-    "proj-a" = {
-      project            = module.project.project_id   
+    "proj-dev" = {
       service            = ["cloudbilling.googleapis.com", "compute.googleapis.com", "iam.googleapis.com"]
       disable_on_destroy = false
     },
-    "proj-b" = {
-      project            = module.project-test.project_id   
+    "proj-test" = { 
       service            = ["cloudbilling.googleapis.com", "compute.googleapis.com", "iam.googleapis.com"]
       disable_on_destroy = false
     },
     "proj-host" = {
-      project            = module.project-host.project_id   
       service            = ["cloudbilling.googleapis.com", "compute.googleapis.com", "iam.googleapis.com"]
       disable_on_destroy = false
     }
