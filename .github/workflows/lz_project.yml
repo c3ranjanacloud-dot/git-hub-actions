@@ -3,6 +3,7 @@ on:
   pull_request:
     branches:
       - demo
+    paths: ['terraform/template/lz_folder/**']
   workflow_run:
     workflows: ["landing zone folder provisioning"]
     types:
@@ -22,6 +23,8 @@ jobs:
     steps:
       - name: checkout code
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
       - name: Authenticate to Google Cloud
         uses: 'google-github-actions/auth@v3'
         with:
