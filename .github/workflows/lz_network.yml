@@ -1,4 +1,4 @@
-name: landing zone infra provisioning
+name: landing zone network provisioning
 on:
   pull_request:
     branches:
