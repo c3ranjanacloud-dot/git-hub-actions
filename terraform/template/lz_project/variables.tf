@@ -35,5 +35,12 @@ variable "host_project_id" {
   type    = string
   default = ""
 }
-
+variable "enable_apis" {
+  description = "APIs to enable per project. Keys must match the keys in local.project_ids."
+  type = map(object({
+    service            = list(string)
+    disable_on_destroy = optional(bool, false)
+  }))
+  default = {}
+}
 
