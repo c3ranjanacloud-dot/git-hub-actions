@@ -11,6 +11,11 @@ enable_apis = {
       service            = ["cloudbilling.googleapis.com", "compute.googleapis.com", "iam.googleapis.com"]
       disable_on_destroy = false
     },
+    "proj-b" = {
+      project            = module.project-test.project_id   
+      service            = ["cloudbilling.googleapis.com", "compute.googleapis.com", "iam.googleapis.com"]
+      disable_on_destroy = false
+    },
     "proj-host" = {
       project            = module.project-host.project_id   
       service            = ["cloudbilling.googleapis.com", "compute.googleapis.com", "iam.googleapis.com"]
