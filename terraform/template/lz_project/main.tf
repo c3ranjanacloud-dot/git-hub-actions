@@ -5,6 +5,13 @@ module "project" {
   folder_id     = local.project_folder_id
   billing_acc   = var.billing_acc
 }
+module "project-test" {
+  source        = "../../modules/project"
+  name          = var.project_name2
+  project_id    = var.project_id2
+  folder_id     = local.project_folder_id
+  billing_acc   = var.billing_acc
+}
 
 module "project-host" {
   source        = "../../modules/project"

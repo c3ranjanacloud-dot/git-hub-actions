@@ -15,6 +15,14 @@ variable "project_id1" {
   type    = string
   default = ""
 }
+variable "project_name2" {
+  type    = string
+  default = ""
+}
+variable "project_id2" {
+  type    = string
+  default = ""
+}
 variable "billing_acc" {
   type    = string
   default = ""
