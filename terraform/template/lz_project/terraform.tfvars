@@ -1,5 +1,7 @@
 project_name1 = "dev-project"
 project_id1 = "dev-project-4c87"
+project_name2 = "test-project"
+project_id2 = "test-project-4c87"
 billing_acc = "01939C-8BBB1C-484643"
 host_project_name = "hosting-project"
 host_project_id = "hosting-project-4c78"
